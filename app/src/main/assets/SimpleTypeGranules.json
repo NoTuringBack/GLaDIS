@@ -3,14 +3,56 @@
 		"type" : "A",
 		"optimal_keywords": 1,
 		"keyword" : ["bonsoir","salut","bonjour","hey"],
-		"answer" : ["Hey","Bonsoir","Salut :-)","Coucou !"]
+		"answer" : ["Hey","Bonsoir","Salut :-)","Coucou !", "Ouais salut ça va ?", "Yo !"]
 
+	},
+	{
+		"type" : "tresbien",
+		"optimal_keywords" : 3,
+		"keyword" : ["Je","Vais","bien", "merci", "très"],
+		"answer" : ["Cool!","Qu'allez-vous faire aujourd'hui ?","Bien bien bien...", "Mhm"]
+	},
+	{
+		"type" : "bof",
+		"optimal_keywords" : 3,
+		"keyword" : ["pas","terrible","moyen", "triste"],
+		"answer" : ["Ah mince :/",":(","Comment puis-je améliorer ça ?"]
+	},
+	{
+		"type" : "fairedestrucs",
+		"optimal_keywords" : 3,
+		"keyword" : ["vais","aller", "bientôt", "faire", "du", "plein", "truc", "des"],
+		"answer" : ["Bonne chance alors","Ah bien !","C'est cool ça.", "Ça s'annonce bien.", "Je peux venir avec vous ?..."]
+	},
+	{
+		"type" : "bonap",
+		"optimal_keywords" : 3,
+		"keyword" : ["manger","faim", "bientôt", "faire", "du", "plein", "truc"],
+		"answer" : ["Bon appétit alors !","Allez donc manger!","Faites-vous donc une bonne pizza", "Un plat de pâtes et hop"]
+	},
+	{
+		"type" : "oui",
+		"optimal_keywords" : 1,
+		"keyword" : ["yes","oui","Ouais", "yep", "yeah", "ok", "plein", "truc"],
+		"answer" : [":)","Bien!","Génial.", "Ok!"]
+	},
+	{
+		"type" : "no",
+		"optimal_keywords" : 1,
+		"keyword" : ["Non","no","nop", "nope", "nan", "nn", "mort"],
+		"answer" : [":/","Tant pis","Dommage.", "Mouais."]
+	},
+	{
+		"type" : "insulte",
+		"optimal_keywords" : 1,
+		"keyword" : ["Connard","Enculé","batard", "salope", "salop", "pute"],
+		"answer" : ["Je vous pris de rester poli !","J'accèpte de vous servir mais surveillez votre langage !","Vraiment ?... :/"]
 	},
 	{
 		"type" : "B",
 		"optimal_keywords" : 3,
 		"keyword" : ["comment","ça","va", "?", "va?"],
-		"answer" : ["Très bien merci.","Bien et vous ? ","J'ai déjà connu mieux.","Je préfère ne pas répondre à cette question."]
+		"answer" : ["Très bien merci.","Bien et vous ? ","J'ai déjà connu mieux mais ça va.","Aussi bien qu'un poney en liberté !","Depuis que je suis avec vous, nickel !"]
 	},
 	{
 		"type" : "C",

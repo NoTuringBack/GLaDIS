@@ -65,7 +65,6 @@ public class UnknownRequest extends RequestType
 
 
 
-
 	@Override
 	public float estimateMatching(String entry, Conversation conv)
 	{
