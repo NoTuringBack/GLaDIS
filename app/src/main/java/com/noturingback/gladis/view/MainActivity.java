@@ -8,7 +8,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.noturingback.gladis.R;
+import com.noturingback.gladis.controller.SimpleRequest;
 import com.noturingback.gladis.model.ConvMessage;
+import com.noturingback.gladis.model.Conversation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
 		list.add(new ConvMessage(ConvMessage.Author.Human, "Comment ça va ?"));
 		list.add(new ConvMessage(ConvMessage.Author.Robot, "Bien et toi ?"));
 		list.add(new ConvMessage(ConvMessage.Author.Human, "Nickel"));
+
+		Conversation conv = new Conversation();
+
+		SimpleRequest req = new SimpleRequest(this);
+		req.respondTo("Comment ça va ?", conv);
 
 		messageListView.setAdapter(new ConversationAdapter(this, R.layout.message_item_list, list));
     }

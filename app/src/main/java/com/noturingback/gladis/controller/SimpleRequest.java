@@ -4,18 +4,10 @@ import android.content.Context;
 
 import com.noturingback.gladis.model.ConvMessage;
 import com.noturingback.gladis.model.Conversation;
+import com.noturingback.gladis.model.Granule;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -25,7 +17,7 @@ import java.util.Random;
 public class SimpleRequest extends RequestType
 {
 	Context context;
-	String fileName = "database.json";
+	String fileName = "SimpleTypeGranules.json";
 
 	public SimpleRequest(Context c)
 	{
@@ -36,53 +28,67 @@ public class SimpleRequest extends RequestType
 	@Override
 	public ConvMessage respondTo(String entry, Conversation conv)
 	{
-		//TODO si le mec dit "bonsoir", répondre un truc qui correspond genre "salut" ?
-		//TODO On peut créer un fichier (json ? xml ? autre ? ) pour chaque type de demande qui regroupe les mot-clés et les réponses possibles
-		//TODO Une fois qu'on a cerné le type d'échange avec les fichiers, choisir une réponse aléatoire parmi celles disponibles pour ce type d'échange
-		/*
-			type1 : bonsoir.json
-				motclés : bonsoir, salut, bonjour, ...
-				réponses possibles : hey, bonsoir, salut, ...
 
-			type2 : Commentcava.json
-				motclés : comment, ça, va
-				réponses possbiels : tranquille et toi, nickel, ...
+		String[] words = splitRequest(entry);
+		HashMap<Granule, Float> values = new HashMap<>();
 
-			Etape 1 :
-				On reçoit "comment ça va ?"
-					On test le database.json : compare avec type1 peu de correspondance avec les mot-clés.
-					On test le database.json: compare avec type 2 Whaouh ça match de ouf du coup on prend celui là.
-			Etape 2 : On choisit une réponse aléatoire dans celles proposées dans le fichier
-			Etape 3 : On crée un objet ConvMessage avec la réponse et on la renvoie.
+		float max = 0;
+		Granule bestGranule = null;
+		List<Granule> granules = GranuleParser.parseGranulesFromFile("SimpleTypeGranules.json", this.context);
+		for (Granule g: granules)
+		{
+			values.put(g, 0f);
+			for (String w : words )
+			{
+				if(g.getKeywords().contains(w))
+					values.put(g, values.get(g) + 1);
+			}
+			values.put(g, values.get(g)/(float)g.getOptimalKeywords());
+			if(values.get(g) > max)
+			{
+				max = values.get(g);
+				bestGranule = g;
+			}
+		}
 
-		 */
-		String typeOfEntry = estimateGlobalMatching(entry, conv);
-		String answer = getAnswer(typeOfEntry);
-		System.out.println(answer);
-		return null;
+		//Sélection d'une réponse
+		int ri = new Random().nextInt(bestGranule.getAnswers().size());
+
+		String answer = bestGranule.getKeywords().get(ri);
+		ConvMessage m = new ConvMessage(ConvMessage.Author.Robot, answer);
+		return m;
 	}
+
+
 
 
 	@Override
-	public String estimateGlobalMatching(String entry, Conversation conv)
+	public float estimateMatching(String entry, Conversation conv)
 	{
-		int a = 0;
-		int b = 0;
-		String r;
-		String[] input = splitRequest(entry);
-		//test the matching
-		for (int i = 0; i < input.length; i++ ) {
-			a = a + estimateMatching("A", input[i], conv);
-			b = b + estimateMatching("B", input[i], conv);
+		String[] words = splitRequest(entry);
+		HashMap<Granule, Float> values = new HashMap<>();
+
+		float max = 0;
+		List<Granule> granules = GranuleParser.parseGranulesFromFile("SimpleTypeGranules.json", this.context);
+		for (Granule g: granules)
+		{
+			values.put(g, 0f);
+			for (String w : words )
+			{
+				if(g.getKeywords().contains(w))
+					values.put(g, values.get(g) + 1);
+			}
+			values.put(g, values.get(g)/(float)g.getOptimalKeywords());
+			if(values.get(g) > max)
+			{
+				max = values.get(g);
+			}
 		}
-		if (a > b)
-			r = "A";
-		else
-			r = "B";
-		return r;
+		return max;
+
 	}
 
-	public String[] splitRequest (String entry)
+	private String[] splitRequest (String entry)
 	{
 		String[] tab = entry.split(" ");
 
@@ -95,78 +101,4 @@ public class SimpleRequest extends RequestType
 	}
 
 
-	public int estimateMatching(String type, String entry, Conversation conv) {
-		int a = 0;
-		JSONArray feedbacks = null;
-		try {
-			feedbacks = parseJson("keyword", type);
-			for (int i = 0; i < feedbacks.length(); i++)
-			{
-				if (entry.equals(feedbacks.getString(i)))
-					a ++;
-			}
-		}catch (JSONException je) {
-			//log the exception
-		}
-		return a;
-	}
-
-	public String getAnswer (String type)
-	{
-		String result = null;
-		int number = 0;
-		Random r = new Random();
-		JSONArray feedbacks = null;
-
-		try {
-			feedbacks = parseJson("answer",type);
-			number = r.nextInt(feedbacks.length()-1);
-			result = feedbacks.getString(number);
-		}catch (JSONException je) {
-			//log the exception
-		}
-		return result;
-	}
-
-	//Parse json and send true if the input has a match in the type field
-	public JSONArray parseJson (String title, String type)
-	{
-		BufferedReader reader = null;
-		StringBuilder sb = new StringBuilder();
-		String result = null;
-		String t = null;
-		JSONArray keywords = null;
-		try {
-			reader = new BufferedReader(
-					new InputStreamReader(context.getAssets().open(fileName)));
-
-			// do reading, usually loop until end of file reading
-			String mLine;
-			while ((mLine = reader.readLine()) != null) {
-				//process line
-				sb.append(mLine + "\n");
-			}
-			result = sb.toString();
-			JSONObject jsonObject = new JSONObject(result);
-			t = (String) jsonObject.get("type");
-			if (t.equals(type))
-			{
-				keywords = (JSONArray) jsonObject.get(title);
-			}
-
-		} catch (IOException e) {
-			//log the exception
-		}catch (JSONException je) {
-			//log the exception
-		} finally {
-			if (reader != null) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					//log the exception
-				}
-			}
-		}
-		return keywords;
-	}
 }
