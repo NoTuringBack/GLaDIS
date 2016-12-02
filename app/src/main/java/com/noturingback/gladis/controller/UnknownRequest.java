@@ -73,14 +73,18 @@ public class UnknownRequest extends RequestType
 		HashMap<Granule, Float> values = new HashMap<>();
 
 		float max = 0;
-		List<Granule> granules = GranuleParser.parseGranulesFromFile("SimpleTypeGranules.json", this.context);
+		List<Granule> granules = GranuleParser.parseGranulesFromFile("UnknownTypeGranules.json", this.context);
 		for (Granule g: granules)
 		{
 			values.put(g, 0f);
 			for (String w : words )
 			{
-				if(g.getKeywords().contains(w.toUpperCase()))
-					values.put(g, values.get(g) + 1);
+				for(String key : g.getKeywords())
+				{
+					if((key.contains(w) && w.length() > 3) || key.equals(w))
+						values.put(g, values.get(g) + 1);
+				}
+
 			}
 			values.put(g, values.get(g)/(float)g.getOptimalKeywords());
 			if(values.get(g) >= max)
