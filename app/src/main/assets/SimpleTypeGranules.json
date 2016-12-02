@@ -14,7 +14,7 @@
 	},
 	{
 		"type" : "C",
-		"optimal_keywords" : 4,
+		"optimal_keywords" : 3,
 		"keyword" : ["comment","t'appelles","tu", "?", "tu?", "nom", "prénom", "nommes"],
 		"answer" : ["Je m'appelle GLaDIS.","Mon nom est GLaDIS ","GLaDIS pour Generated Lifeform and Deficient Intelligent System","Je préfère ne pas répondre à cette question."]
 	}
