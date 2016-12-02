@@ -25,21 +25,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 		messageListView = (ListView)findViewById(R.id.message_listview);
-		entryEdit = (EditText)findViewById(R.id.message_edit);
+		messageListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+		messageListView.setStackFromBottom(true);
 
-		List<ConvMessage> list = new ArrayList<>();
-		list.add(new ConvMessage(ConvMessage.Author.Robot, "Bonjour"));
-		list.add(new ConvMessage(ConvMessage.Author.Human, "Comment ça va ?"));
-		list.add(new ConvMessage(ConvMessage.Author.Robot, "Bien et toi ?"));
-		list.add(new ConvMessage(ConvMessage.Author.Human, "Nickel"));
-		list.add(new ConvMessage(ConvMessage.Author.Robot, "Bonjour"));
-		list.add(new ConvMessage(ConvMessage.Author.Human, "Comment ça va ?"));
-		list.add(new ConvMessage(ConvMessage.Author.Robot, "Bien et toi ?"));
-		list.add(new ConvMessage(ConvMessage.Author.Human, "Nickel"));
-		list.add(new ConvMessage(ConvMessage.Author.Robot, "Bonjour"));
-		list.add(new ConvMessage(ConvMessage.Author.Human, "Comment ça va ?"));
-		list.add(new ConvMessage(ConvMessage.Author.Robot, "Bien et toi ?"));
-		list.add(new ConvMessage(ConvMessage.Author.Human, "Nickel"));
+		entryEdit = (EditText)findViewById(R.id.message_edit);
 
 		controller = new Controller(this);
 
@@ -55,7 +44,13 @@ public class MainActivity extends AppCompatActivity {
 		controller.newMessage(s);
 		controller.askAnswer();
 		((ConversationAdapter)messageListView.getAdapter()).notifyDataSetChanged();
-		messageListView.smoothScrollToPosition(controller.getConversation().getMessages().size());
+		/*messageListView.smoothScrollToPosition(controller.getConversation().getMessages().size());
+		messageListView.post(new Runnable() {
+			@Override
+			public void run() {
+				messageListView.smoothScrollToPosition(controller.getConversation().getMessages().size() - 4);
+			}
+		});*/
 	}
 
 	public void buttonVoiceAction(View view)

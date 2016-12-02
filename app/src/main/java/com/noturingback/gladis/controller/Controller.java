@@ -21,7 +21,7 @@ public class Controller
 	public Controller(Context context)
 	{
 		this.context = context;
-		//requests.add(new BlagueRequest(context));
+		requests.add(new BlagueRequest(context));
 		requests.add(new SimpleRequest(context));
 	}
 
