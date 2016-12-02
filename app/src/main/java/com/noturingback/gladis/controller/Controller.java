@@ -23,6 +23,7 @@ public class Controller
 		this.context = context;
 		requests.add(new BlagueRequest(context));
 		requests.add(new SimpleRequest(context));
+		requests.add(new UnknownRequest(context));
 	}
 
 	public void newMessage(String message)

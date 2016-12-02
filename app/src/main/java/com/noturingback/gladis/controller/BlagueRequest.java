@@ -88,17 +88,7 @@ public class BlagueRequest extends RequestType {
 
     }
 
-    private String[] splitRequest (String entry)
-    {
-        String[] tab = entry.split(" ");
 
-        //standardize to lower cases
-        for (int i = 0; i < tab.length; i++)
-        {
-            tab[i] = tab[i].toLowerCase();
-        }
-        return tab;
-    }
 
 
 }
