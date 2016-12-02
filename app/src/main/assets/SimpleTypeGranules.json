@@ -2,14 +2,14 @@
 	{
 		"type" : "A",
 		"optimal_keywords": 1,
-		"keyword" : ["bonsoir","salut","bonjour"],
-		"answer" : ["hey","bonsoir","salut","coucou"]
+		"keyword" : ["bonsoir","salut","bonjour","hey"],
+		"answer" : ["Hey","Bonsoir","Salut :-)","Coucou !"]
 
 	},
 	{
 		"type" : "B",
 		"optimal_keywords" : 3,
 		"keyword" : ["comment","ça","va", "?", "va?"],
-		"answer" : ["Très bien merci.","Bien et vous ? ","A connu mieux.","Je préfère ne pas répondre à cette question"]
+		"answer" : ["Très bien merci.","Bien et vous ? ","J'ai déjà connu mieux.","Je préfère ne pas répondre à cette question."]
 	}
 ]
