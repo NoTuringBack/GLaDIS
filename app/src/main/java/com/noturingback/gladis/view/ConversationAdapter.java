@@ -57,6 +57,9 @@ public class ConversationAdapter extends ArrayAdapter<ConvMessage>
 			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
 			params = (RelativeLayout.LayoutParams)holder.layout.getLayoutParams();
 			params.setMargins(0, 0, (int)convertView.getContext().getResources().getDimension(R.dimen.message_author_margin), 0);
+			params = (RelativeLayout.LayoutParams)holder.contentLayout.getLayoutParams();
+			params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
 		}
 		else
 		{
@@ -67,6 +70,9 @@ public class ConversationAdapter extends ArrayAdapter<ConvMessage>
 			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 			params = (RelativeLayout.LayoutParams) holder.layout.getLayoutParams();
 			params.setMargins((int)convertView.getContext().getResources().getDimension(R.dimen.message_author_margin), 0, 0, 0);
+			params = (RelativeLayout.LayoutParams)holder.contentLayout.getLayoutParams();
+			params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		}
 		if(holder.message.getImage() == null)
 		{
