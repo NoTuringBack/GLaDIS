@@ -11,5 +11,11 @@
 		"optimal_keywords" : 3,
 		"keyword" : ["comment","ça","va", "?", "va?"],
 		"answer" : ["Très bien merci.","Bien et vous ? ","J'ai déjà connu mieux.","Je préfère ne pas répondre à cette question."]
+	},
+	{
+		"type" : "C",
+		"optimal_keywords" : 4,
+		"keyword" : ["comment","t'appelles","tu", "?", "tu?", "nom", "prénom", "nommes"],
+		"answer" : ["Très bien merci.","Bien et vous ? ","J'ai déjà connu mieux.","Je préfère ne pas répondre à cette question."]
 	}
 ]
