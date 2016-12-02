@@ -11,7 +11,6 @@ public class Conversation
 {
 	List<ConvMessage> messages;
 
-	//TODO tout ce qui est relatif à la conversation en cours
 	public Conversation()
 	{
 		messages = new ArrayList<ConvMessage>();
@@ -26,4 +25,15 @@ public class Conversation
 	{
 		return messages;
 	}
+
+	public ConvMessage getLastHumanMessage()
+	{
+		for(int i = getMessages().size()-1; i >= 0 ; i--)
+		{
+			if(getMessages().get(i).getAuthor() == ConvMessage.Author.Human)
+				return getMessages().get(i);
+		}
+		return null;
+	}
+
 }

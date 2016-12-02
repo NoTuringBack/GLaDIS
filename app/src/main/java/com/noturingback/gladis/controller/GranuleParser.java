@@ -72,7 +72,7 @@ public class GranuleParser
 		JSONArray karray = obj.getJSONArray("keyword");
 		for(int i = 0 ; i < karray.length() ; i++)
 		{
-			g.getKeywords().add(karray.getString(i));
+			g.getKeywords().add(karray.getString(i).toUpperCase());
 		}
 
 		JSONArray aarray = obj.getJSONArray("answer");
