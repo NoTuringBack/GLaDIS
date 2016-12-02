@@ -9,6 +9,6 @@ import com.noturingback.gladis.model.Conversation;
 
 public abstract class RequestType
 {
-	public abstract int estimateMatching(String entry, Conversation conv);
+	public abstract String estimateGlobalMatching(String entry, Conversation conv);
 	public abstract ConvMessage respondTo(String entry, Conversation conv);
 }
