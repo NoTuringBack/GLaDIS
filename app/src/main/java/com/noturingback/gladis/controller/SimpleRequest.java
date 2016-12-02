@@ -72,8 +72,8 @@ public class SimpleRequest extends RequestType
 		String[] input = splitRequest(entry);
 		//test the matching
 		for (int i = 0; i < input.length; i++ ) {
-			a = a + estimateMatching('A', input[i], conv);
-			b = b + estimateMatching('B', input[i], conv);
+			a = a + estimateMatching("A", input[i], conv);
+			b = b + estimateMatching("B", input[i], conv);
 		}
 		if (a > b)
 			r = "A";
@@ -95,11 +95,11 @@ public class SimpleRequest extends RequestType
 	}
 
 
-	public int estimateMatching(char c, String entry, Conversation conv) {
+	public int estimateMatching(String type, String entry, Conversation conv) {
 		int a = 0;
 		JSONArray feedbacks = null;
 		try {
-			feedbacks = parseJson("keyword");
+			feedbacks = parseJson("keyword", type);
 			for (int i = 0; i < feedbacks.length(); i++)
 			{
 				if (entry.equals(feedbacks.getString(i)))
@@ -119,7 +119,7 @@ public class SimpleRequest extends RequestType
 		JSONArray feedbacks = null;
 
 		try {
-			feedbacks = parseJson(type);
+			feedbacks = parseJson("answer",type);
 			number = r.nextInt(feedbacks.length()-1);
 			result = feedbacks.getString(number);
 		}catch (JSONException je) {
@@ -129,11 +129,12 @@ public class SimpleRequest extends RequestType
 	}
 
 	//Parse json and send true if the input has a match in the type field
-	public JSONArray parseJson (String title)
+	public JSONArray parseJson (String title, String type)
 	{
 		BufferedReader reader = null;
 		StringBuilder sb = new StringBuilder();
 		String result = null;
+		String t = null;
 		JSONArray keywords = null;
 		try {
 			reader = new BufferedReader(
@@ -147,7 +148,11 @@ public class SimpleRequest extends RequestType
 			}
 			result = sb.toString();
 			JSONObject jsonObject = new JSONObject(result);
-			keywords = (JSONArray) jsonObject.get(title);
+			t = (String) jsonObject.get("type");
+			if (t.equals(type))
+			{
+				keywords = (JSONArray) jsonObject.get(title);
+			}
 
 		} catch (IOException e) {
 			//log the exception
