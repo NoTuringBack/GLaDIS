@@ -11,5 +11,17 @@
 		"optimal_keywords" : 3,
 		"keyword" : ["comment","ça","va", "?", "va?"],
 		"answer" : ["Très bien merci.","Bien et vous ? ","J'ai déjà connu mieux.","Je préfère ne pas répondre à cette question."]
+	},
+	{
+		"type" : "C",
+		"optimal_keywords" : 3,
+		"keyword" : ["comment","t'appelles","tu", "?", "tu?", "nom", "prénom", "nommes"],
+		"answer" : ["Je m'appelle GLaDIS.","Mon nom est GLaDIS ","GLaDIS pour Generated Lifeform and Deficient Intelligent System","Je préfère ne pas répondre à cette question."]
+	},
+	{
+		"type" : "D",
+		"optimal_keywords" : 2,
+		"keyword" : ["quel","beau","temps","soleil", "ensoleillé", "pluie", "pleut", "nuage", "gris", "fait", "aujourd'hui"],
+		"answer" : ["Je n'aime pas beaucoup ce temps là.","Le soleil agresse ma peau fragile. ","Je préfère les Eclipses.","Pourquoi parler de la pluie et du beau temps, vous n'avez donc pas de conversation ?"]
 	}
 ]
