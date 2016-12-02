@@ -24,7 +24,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:srcCompat="@android:drawable/ic_btn_speak_now"
-            android:id="@+id/imageButton"/>
+            android:id="@+id/imageButton"
+            android:onClick="buttonVoiceAction"/>
 
         <EditText
             android:layout_width="wrap_content"
@@ -33,7 +34,7 @@
             android:text=""
             android:hint="@string/parlez_moi"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/message_edit"
             android:layout_weight="1"/>
 
         <ImageButton
@@ -41,14 +42,19 @@
             android:layout_height="match_parent"
             app:srcCompat="@android:drawable/stat_sys_upload_done"
             android:id="@+id/imageButton2"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="buttonSendAction"/>
     </LinearLayout>
 
     <ListView
+        android:dividerHeight="2dp"
+        android:divider="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/entry_layout"/>
+        android:id="@+id/message_listview"
+        android:layout_above="@+id/entry_layout"
+        android:layout_marginBottom="15dp"/>
 </RelativeLayout>
