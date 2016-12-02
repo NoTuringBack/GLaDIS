@@ -21,8 +21,9 @@ public class Controller
 	public Controller(Context context)
 	{
 		this.context = context;
-		//requests.add(new BlagueRequest(context));
+		requests.add(new BlagueRequest(context));
 		requests.add(new SimpleRequest(context));
+		requests.add(new UnknownRequest(context));
 	}
 
 	public void newMessage(String message)
@@ -40,6 +41,7 @@ public class Controller
 		for(int i = 0 ; i < requests.size(); i++)
 		{
 			float temp = requests.get(i).estimateMatching(m.getText(), conversation);
+			System.out.println(requests.get(i).getClass() + " : " + temp);
 			if(temp >= max)
 			{
 				max = temp;

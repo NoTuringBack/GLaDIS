@@ -1,0 +1,15 @@
+[
+	{
+		"type" : "B",
+		"optimal_keywords" : 1,
+		"keyword" : ["azertyuiop", "qsdfghjklm", "wxcvbn", "&é'(-è_çà", "123456789"],
+		"answer" : ["asdfghjkllkjfudtyrfg je fais ça mieux que vous ...", "Vous appuyez simplement sur les touches de votre clavier là...","Arrêtez ça s'il vous plait...","Si vous ne souhaitez pas écrire correctement je m'en vais hein ..."]
+	},
+	{
+		"type" : "A",
+		"optimal_keywords": 1,
+		"keyword" : [],
+		"answer" : ["Hein ?","Désolé, je ne comprend pas","Pouvez-vous reformuler ?","Pardon, je suis encore jeune et ne comprend pas tout votre vocabulaire :/"]
+
+	}
+]

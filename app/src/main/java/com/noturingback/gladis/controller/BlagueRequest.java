@@ -40,11 +40,11 @@ public class BlagueRequest extends RequestType {
             values.put(g, 0f);
             for (String w : words )
             {
-                if(g.getKeywords().contains(w))
+                if(g.getKeywords().contains(w.toUpperCase()))
                     values.put(g, values.get(g) + 1);
             }
             values.put(g, values.get(g)/(float)g.getOptimalKeywords());
-            if(values.get(g) > max)
+            if(values.get(g) >= max)
             {
                 max = values.get(g);
                 bestGranule = g;
@@ -54,7 +54,7 @@ public class BlagueRequest extends RequestType {
         //Sélection d'une réponse
         int ri = new Random().nextInt(bestGranule.getAnswers().size());
 
-        String answer = bestGranule.getKeywords().get(ri);
+        String answer = bestGranule.getAnswers().get(ri);
         ConvMessage m = new ConvMessage(ConvMessage.Author.Robot, answer);
         return m;
     }
@@ -75,11 +75,11 @@ public class BlagueRequest extends RequestType {
             values.put(g, 0f);
             for (String w : words )
             {
-                if(g.getKeywords().contains(w))
+                if(g.getKeywords().contains(w.toUpperCase()))
                     values.put(g, values.get(g) + 1);
             }
             values.put(g, values.get(g)/(float)g.getOptimalKeywords());
-            if(values.get(g) > max)
+            if(values.get(g) >= max)
             {
                 max = values.get(g);
             }
@@ -88,17 +88,7 @@ public class BlagueRequest extends RequestType {
 
     }
 
-    private String[] splitRequest (String entry)
-    {
-        String[] tab = entry.split(" ");
 
-        //standardize to lower cases
-        for (int i = 0; i < tab.length; i++)
-        {
-            tab[i] = tab[i].toLowerCase();
-        }
-        return tab;
-    }
 
 
 }
