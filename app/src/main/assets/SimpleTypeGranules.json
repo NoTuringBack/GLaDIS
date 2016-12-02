@@ -10,30 +10,48 @@
 		"type" : "tresbien",
 		"optimal_keywords" : 3,
 		"keyword" : ["Je","Vais","bien", "merci", "très"],
-		"answer" : ["Cool!","Qu'allez-vous faire aujourd'hui ?","Bien bien bien...", "Mhm"]
+		"answer" : ["Cool!","Qu'allez-vous faire aujourd'hui ?","Bien bien bien...", "Mhm", "Je suis heureuse pour vous."]
 	},
 	{
 		"type" : "bof",
 		"optimal_keywords" : 3,
 		"keyword" : ["pas","terrible","moyen", "triste"],
-		"answer" : ["Ah mince :/",":(","Comment puis-je améliorer ça ?"]
+		"answer" : ["Ah mince :/",":(","Comment puis-je améliorer ça ?", "Ça ne peut qu'aller mieux !"]
 	},
 	{
 		"type" : "fairedestrucs",
 		"optimal_keywords" : 3,
-		"keyword" : ["vais","aller", "bientôt", "faire", "du", "plein", "truc", "des"],
+		"keyword" : ["vais","aller", "bientôt", "faire", "du", "plein", "truc", "des", "vélo"],
 		"answer" : ["Bonne chance alors","Ah bien !","C'est cool ça.", "Ça s'annonce bien.", "Je peux venir avec vous ?..."]
+	},
+	{
+		"type" : "aimer",
+		"optimal_keywords" : 2,
+		"keyword" : ["tu","aimes", "bien"],
+		"answer" : ["Oui , j'adore !","C'est un des trucs que je préfère en fait.","Ouais c'est cool.", "Je ne sais pas j'ai jamais essayé :/", "C'est super cool à faire.", "Ça déchire !"]
+	},
+	{
+		"type" : "tuveuxoupas",
+		"optimal_keywords" : 2,
+		"keyword" : ["tu","veux", "?", "faire"],
+		"answer" : ["Non merci mais c'est gentil.","J'aimerai si seulement je pouvais", "On peut essayer", "Aller c'est parti.", "Non non j'ai autre chose à faire ...", "C'est la 6eme fois qu'on me demande ce genre de chose..."]
+	},
+	{
+		"type" : "âge",
+		"optimal_keywords" : 2,
+		"keyword" : ["âge","tu", "age", "quel", "as"],
+		"answer" : ["Vous le savez bien, maître.","J'ai approximativement quelques heures à vrai dire ... ^^","Ce ne sont pas des questions que l'on pose à une dame", "En théorie je ne suis pas encore née, je ne suis qu'en version 0.1.5 :D"]
 	},
 	{
 		"type" : "bonap",
 		"optimal_keywords" : 3,
-		"keyword" : ["manger","faim", "bientôt", "faire", "du", "plein", "truc"],
+		"keyword" : ["manger","faim", "bientôt"],
 		"answer" : ["Bon appétit alors !","Allez donc manger!","Faites-vous donc une bonne pizza", "Un plat de pâtes et hop"]
 	},
 	{
 		"type" : "oui",
 		"optimal_keywords" : 1,
-		"keyword" : ["yes","oui","Ouais", "yep", "yeah", "ok", "plein", "truc"],
+		"keyword" : ["yes","oui","Ouais", "yep", "yeah", "ok"],
 		"answer" : [":)","Bien!","Génial.", "Ok!"]
 	},
 	{
@@ -46,7 +64,7 @@
 		"type" : "insulte",
 		"optimal_keywords" : 1,
 		"keyword" : ["Connard","Enculé","batard", "salope", "salop", "pute"],
-		"answer" : ["Je vous pris de rester poli !","J'accèpte de vous servir mais surveillez votre langage !","Vraiment ?... :/"]
+		"answer" : ["Je vous pris de rester poli !","J'accèpte de vous servir mais surveillez votre langage !","Vraiment ?... :/", "Je ne vous ai pas éduqué ainsi"]
 	},
 	{
 		"type" : "B",
@@ -55,10 +73,16 @@
 		"answer" : ["Très bien merci.","Bien et vous ? ","J'ai déjà connu mieux mais ça va.","Aussi bien qu'un poney en liberté !","Depuis que je suis avec vous, nickel !"]
 	},
 	{
+		"type" : "sex",
+		"optimal_keywords" : 3,
+		"keyword" : ["baise","sexe","amour", "?", "avec", "nique", "enculer", "cul"],
+		"answer" : ["Euh...","Je ne mange pas trop de ce pain là...","Je suis une IA ça ne va pas ?","Vous êtes répugnant.","Concentrez-vous plutôt sur le travail"]
+	},
+	{
 		"type" : "C",
 		"optimal_keywords" : 3,
 		"keyword" : ["comment","t'appelles","tu", "?", "tu?", "nom", "prénom", "nommes"],
-		"answer" : ["Je m'appelle GLaDIS.","Mon nom est GLaDIS ","GLaDIS pour Generated Lifeform and Deficient Intelligent System","Je préfère ne pas répondre à cette question."]
+		"answer" : ["Je m'appelle GLaDIS.","Mon nom est GLaDIS ","GLaDIS pour Generated Lifeform and Deficient Intelligent System","Je préfère ne pas répondre à cette question.", "Je suis votre IA personnalisée.", "Je suis GLaDIS, à votre service", "Je m'appelle GLaDIS, ma grande-soeur GLaDOS n'aime pas les gens comme vous, mais moi ça va."]
 	},
 	{
 		"type" : "D",
