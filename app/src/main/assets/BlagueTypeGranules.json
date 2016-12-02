@@ -1,0 +1,13 @@
+[
+  {
+    "type" : "A",
+    "optimal_keywords": 100,
+    "keyword" : ["drole","histoire","blague", "raconte"],
+    "answer" : ["En amérique il y a trois super heros, superman qui survole les tours, spiderman qui les escalade et musulman qui les traversent.",
+      "Comment appelle-t-on une tomate avec une cape? Une super tomate. Et comment appelle-t-on une concombre avec une cape? Un concombre qui se déguise en super tomate.",
+      "Qu'est ce qui est grand, vert, et qui fait super mal quand il te tombe sur la gueule? Un terrain de foot !",
+      "Quel est le jeu préféré des superhéros ? Cape ou pas cape.",
+      "Quel superhéros joue le mieux au base-ball ? Batte-Man",
+      "Où les superhéros vont-ils faire leurs courses ? Au super marché."]
+  }
+]
