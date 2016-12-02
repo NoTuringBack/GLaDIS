@@ -16,6 +16,6 @@
 		"type" : "C",
 		"optimal_keywords" : 4,
 		"keyword" : ["comment","t'appelles","tu", "?", "tu?", "nom", "prénom", "nommes"],
-		"answer" : ["Très bien merci.","Bien et vous ? ","J'ai déjà connu mieux.","Je préfère ne pas répondre à cette question."]
+		"answer" : ["Je m'appelle GLaDIS.","Mon nom est GLaDIS ","GLaDIS pour Generated Lifeform and Deficient Intelligent System","Je préfère ne pas répondre à cette question."]
 	}
 ]
